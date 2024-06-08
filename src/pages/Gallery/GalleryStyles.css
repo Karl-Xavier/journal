@@ -1,0 +1,43 @@
+.card-footer
+{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+}
+
+.card-footer .trash
+{
+    cursor: pointer;
+    color: rgb(123, 207, 235);
+}
+
+.card-footer .trash:hover
+{
+    color: red;
+}
+
+.img-upload
+{
+    width: 150px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form .imgtitle
+{
+    width: 300px;
+    max-width: 300px;
+    background-color: whitesmoke;
+    color: grey;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}

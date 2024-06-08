@@ -1,0 +1,5 @@
+@media screen and (max-width: 567px){
+    .button{
+        display: none;
+    }
+}

@@ -1,0 +1,39 @@
+nav
+{
+    background-color: rgb(80, 197, 236);
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.flexbox
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flexbox div
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+@media screen and (max-width: 567px){
+    h1{
+        font-size: .8rem;
+    }
+    .menu 
+    {
+        font-size: medium;
+    }
+}
