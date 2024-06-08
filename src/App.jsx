@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { auth } from './firebaseConfig';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,30 +16,30 @@ import Gallery from './pages/Gallery/Gallery';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {
-  const [user, setUser] = useState()
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      setUser(user)
-    })
-  })
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
   return (
     <div className="App">
-      <ToastContainer/>
+      <ToastContainer />
       <Router>
-        
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/" element={user ? <Navigate to="/"/> : <Login/>} />
-          <Route path="/signup" element={<SignUp/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path='/travelLogForm' element={<TravelLogForm/>}/>
-          <Route path='/travelLogStats/:id' element={<TravelLogStat/>}/>
-          <Route path='/profile' element={<Profile/>}/>
-          <Route path='/photoCard' element={<PhotoAlbum/>}/>
-          <Route path='/gallery' element={<Gallery/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path='*' element={<NotFound/>}/>
+          <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+          <Route path="/travelLogForm" element={user ? <TravelLogForm /> : <Navigate to="/login" />} />
+          <Route path="/travelLogStats/:id" element={user ? <TravelLogStat /> : <Navigate to="/login" />} />
+          <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
+          <Route path="/photoCard" element={user ? <PhotoAlbum /> : <Navigate to="/login" />} />
+          <Route path="/gallery" element={user ? <Gallery /> : <Navigate to="/login" />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </div>
