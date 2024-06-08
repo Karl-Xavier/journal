@@ -3,6 +3,7 @@ import { auth } from '../../firebaseConfig'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Envelope, Password } from 'phosphor-react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import './Login.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
