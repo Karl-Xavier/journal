@@ -49,7 +49,7 @@ const TravelLog = () => {
                             <h2>{memory.title}</h2>
                             <p style={{color: "grey", fontStyle: "italic"}}>Created on: {memory.createAt}</p>
                             </Link>
-                            <Trash onClick={() => handelDel(memory.id)} role='button' className='trash' size={30}/>
+                            <Trash onClick={() => handelDel(memory.id)} role='button' className='trash' size={31}/>
                         </div>
                 )
             })}
