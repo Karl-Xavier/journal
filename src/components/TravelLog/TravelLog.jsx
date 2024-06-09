@@ -3,6 +3,7 @@ import { db } from '../../firebaseConfig'
 import { collection, getDocs, deleteDoc, doc } from '@firebase/firestore'
 import { Link } from 'react-router-dom'
 import { Trash } from 'phosphor-react'
+import { toast } from 'react-toastify'
 
 const TravelLog = () => {
     const [memories, setMemories] = useState([])
@@ -22,8 +23,9 @@ const TravelLog = () => {
     async function handelDel(id){
         try {
             const deleteDocument = doc(db, 'Memories', id); 
-            await deleteDoc(deleteDocument); 
+            await deleteDoc(deleteDocument);
             setMemories(memories.filter(memory => memory.id !== id)); 
+            toast.info("Deleted", {position: "top-center"})
         } catch (error) {
             console.error('Error deleting document:', error);
         }

@@ -42,21 +42,12 @@ const UserDetails = () => {
     }
 
 return (
-    <div>
+    <div className="userDetails">
     {userDetails ? (
         <div>
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                flexWrap: "wrap", 
-                alignItems: "center",
-                marginBottom: "0",
-                justifyContent: "center"
-            }}>
             <Link style={{textDecoration: "none", color: "#fff"}} to={'/profile'}>
-                <p style={{marginRight: "5px", fontWeight: "bold"}}>{userDetails.name}</p>
+                <p style={{fontWeight: "bold"}}>{userDetails.name}</p>
              </Link>
-            </div>
             <button className='btn btn-light button' style={{width: "100px"}} onClick={handleLogOut}>SignOut</button>
         </div>
     ) :<p style={{

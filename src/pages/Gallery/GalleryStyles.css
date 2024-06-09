@@ -32,7 +32,7 @@ form{
 form .imgtitle
 {
     width: 300px;
-    max-width: 300px;
+    max-width: 280px;
     background-color: whitesmoke;
     color: grey;
     border: none;
@@ -40,4 +40,27 @@ form .imgtitle
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+form .imgBarr
+{
+    display: inline-flex;
+    width: 350px;
+    max-width: 280px;
+    height: 200px;
+    border-radius: 20px;
+    gap: 4px;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 50px;
+    background-image: url(../../assets/upload.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+form .imgBarr span
+{
+    color: rgb(109, 166, 185);
+    font-style: italic;
+    cursor: pointer;
 }

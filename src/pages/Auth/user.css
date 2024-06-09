@@ -1,5 +1,27 @@
+.userDetails div
+{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    gap: 5px;
+}
+
+.userDetails div p
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+    margin: 0;
+}
+
 @media screen and (max-width: 567px){
     .button{
         display: none;
+    }
+
+    .userDetails div p
+    {
+        max-width: 100px;
     }
 }

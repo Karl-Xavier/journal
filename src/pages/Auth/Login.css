@@ -53,6 +53,11 @@ form{
 }
 
 @media  screen and (max-width: 576px) {
+    .login h1
+    {
+        font-size: 1.4rem;
+    }
+    
     form{
         width: 90%;
     }

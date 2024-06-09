@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Bars } from 'react-loader-spinner';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { auth } from './firebaseConfig';
@@ -17,13 +18,32 @@ import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
+      setLoading(false)
     });
     return () => unsubscribe();
   }, []);
+
+  if(loading) {
+    return (
+      <div className="bars">
+        <Bars
+          height="50"
+          width="50"
+          color="#50c5ec"
+          ariaLabel="bars-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+      
+    )
+  }
 
   return (
     <div className="App">
@@ -32,12 +52,12 @@ function App() {
         <Routes>
           <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-          <Route path="/travelLogForm" element={user ? <TravelLogForm /> : <Navigate to="/login" />} />
-          <Route path="/travelLogStats/:id" element={user ? <TravelLogStat /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
-          <Route path="/photoCard" element={user ? <PhotoAlbum /> : <Navigate to="/login" />} />
-          <Route path="/gallery" element={user ? <Gallery /> : <Navigate to="/login" />} />
+          <Route path="/login" element={user ? <Navigate to='/'/> : <Login />} />
+          <Route path="/travelLogForm" element={<TravelLogForm />} />
+          <Route path="/travelLogStats/:id" element={<TravelLogStat />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/photoCard" element={<PhotoAlbum />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

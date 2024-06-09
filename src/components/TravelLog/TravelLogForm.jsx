@@ -92,12 +92,15 @@ const TravelLogForm = () => {
             <input 
               type="file"
               onChange={uploadImage}
-              className='imgbar'
+              id='file'
+              style={{display: "none"}}
               required
-              disabled={uploading}
             />
+            <label disabled={uploading} className="imgBar" htmlFor="file">
+              <span>Drop</span> an Image Here
+            </label>
           </div>
-          <button className='btn btn-primary' type="submit" disabled={uploading}>
+          <button className='btn btn-primary mt-5' type="submit" disabled={uploading}>
             {uploading ? 'Scanning...' : 'Upload'} {uploading ? <Scan size={20}/> : <Upload size={20}/>}
           </button>
         </form>

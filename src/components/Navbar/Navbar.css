@@ -23,15 +23,23 @@ nav
     align-items: center;
 }
 
+.flexbox div h2
+{
+    margin: 0;
+}
+
 .menu {
     cursor: pointer;
     margin-right: 3px;
 }
 
 @media screen and (max-width: 567px){
-    h1{
-        font-size: .8rem;
+
+    .flexbox div h2
+    {
+        font-size: 1.2rem;
     }
+    
     .menu 
     {
         font-size: medium;

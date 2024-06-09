@@ -1,71 +1,41 @@
-.profile-con {
+.profile-con
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content
+{
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: whitesmoke;
 }
 
-.section-div {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-    background-color: #faf2f2;
-}
-
-.content {
+.profile-con .content .first
+{
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.first {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.name, .email {
-    width: 100%;
-    margin-top: 10px;
-}
-
-.name {
-    font-size: 30px;
-    word-wrap: break-word;
-}
-
-.profileButton {
-    width: 156px;
-}
-
-.pencil {
+.profile-con .content .first .pencil
+{
     cursor: pointer;
 }
 
-@media screen and (max-width: 576px) {
-    .profile-con {
-        height: auto;
-        padding: 20px;
-    }
-    .section-div {
-        padding: 10%;
-    }
-    .name, .email {
-        font-size: 16px;
-    }
-    .name {
-        font-size: 20px;
-    }
-    .profileButton {
-        width: 100%;
-    }
+.profile-con .content p
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
 }

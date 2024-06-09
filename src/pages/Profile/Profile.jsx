@@ -78,16 +78,9 @@ const Profile = () => {
         <div>
             <MainNav />
             <div className="container profile-con py-4">
-                <div className="container section-div">
                     {userProfile.name ? (
-                        <section className='container content text-center'>
+                        <section className='content'>
                             <div className="first">
-                            <Pencil
-                                size={20}
-                                onClick={onEdit}
-                                title="Edit"
-                                className='pencil'
-                            />
                             <input
                                 type="text"
                                 value={name}
@@ -101,28 +94,22 @@ const Profile = () => {
                                     borderRadius: "5px",
                                     display: 'block',
                                     backgroundColor: 'transparent',
-                                    userSelect: "none",
                                     fontSize: "30px",
-                                    textAlign: "center"
+                                    textAlign: "center",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "180px"
                                 }}
+                            />
+                            <Pencil
+                                size={20}
+                                onClick={onEdit}
+                                title="Edit"
+                                className='pencil'
                             />
                             </div>
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                readOnly={!edit}
-                                className='email'
-                                style={{
-                                    border: edit ? '1px solid black' : 'none',
-                                    outline: "none",
-                                    padding: "3%",
-                                    borderRadius: "5px",
-                                    display: 'block',
-                                    backgroundColor: 'transparent',
-                                    width: "300px"
-                                }}
-                            />
+                            <p>{email}</p>
                             <div>
                                 <button className='btn btn-primary profileButton mt-3'>SignOut <Logout /> </button>
                             </div>
@@ -130,7 +117,6 @@ const Profile = () => {
                     ) : <p>Loading.....</p>
                     }
                     <p style={{ fontWeight: "bold" }} className='my-3'>Your Profile Informations</p>
-                </div>
                 {edit && userProfile && (
                     <button style={{ width: "150px" }} className='btn btn-primary mt-3' onClick={updateDocument}>Update <Update /> </button>
                 )}

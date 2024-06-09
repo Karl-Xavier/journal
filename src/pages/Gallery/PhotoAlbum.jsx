@@ -75,8 +75,12 @@ const PhotoAlbum = () => {
               type="file"
               required
               onChange={handleUploadFile}
-              disabled={uploading}
+              id='file'
+              style={{display: "none"}}
             />
+            <label disabled={uploading} className="imgBarr" htmlFor="file">
+              <span>Drop</span> an Image Here
+            </label>
             <button className="btn btn-primary img-upload my-3" type="submit" disabled={uploading}>
               {uploading ? 'Scanning...' : 'Upload'} {uploading ? <Scan size={20}/> : <Upload size={20}/>}
             </button>
