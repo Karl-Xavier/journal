@@ -53,11 +53,11 @@ function App() {
           <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={user ? <Navigate to='/'/> : <Login />} />
-          <Route path="/travelLogForm" element={<TravelLogForm />} />
-          <Route path="/travelLogStats/:id" element={<TravelLogStat />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/photoCard" element={<PhotoAlbum />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/travelLogForm" element={user ? <TravelLogForm /> : <Navigate to='/login'/>} />
+          <Route path="/travelLogStats/:id" element={user ? <TravelLogStat /> : <Navigate to='/login'/>} />
+          <Route path="/profile" element={user ? <Profile /> : <Navigate to='/login'/>} />
+          <Route path="/photoCard" element={user ? <PhotoAlbum /> : <Navigate to='/login'/>} />
+          <Route path="/gallery" element={user ? <Gallery /> : <Navigate to='/login'/>} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
